@@ -1,0 +1,12 @@
+png("plot4.png", width = 480, height = 480, units = "px")
+par(mfcol=c(2,2))
+par(mar=c(4,4,2,1))
+plot(data1$Time, data1$Global_active_power, ylab="Global Active Power (kilowatts)", type = "s", xlab = "")
+plot(data1$Time, data1$Sub_metering_1, type = "s", xlab="", ylab = "Energy sub metering")
+lines(data1$Time, data1$Sub_metering_2, type = "s", col = "red")
+lines(data1$Time, data1$Sub_metering_3, type = "s", col = "blue")
+legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), pch = "-", 
+       col=c("black", "red", "blue"), bty = "n")
+plot(data1$Time, data1$Voltage, type = "s", xlab = "datetime", ylab = "Voltage")
+plot(data1$Time, data1$Global_reactive_power, type = "s", xlab = "datetime")
+dev.off()
