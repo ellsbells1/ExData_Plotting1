@@ -11,7 +11,12 @@ data1<- wholeData[wholeData$Date %in% c("1/2/2007", "2/2/2007"),]
 ATime <- strptime(paste(data1$date, data1$Time, sep = " "), "%d%m%y %H:%M:%S")
 data1<- cbind(ATime, data1)
 
+data1 <- wholeData[wholeData$Date %in% c("1/2/2007","2/2/2007"),]
+DiffTime <-strptime(paste(data1$Date, data1$Time, sep=" "),"%d/%m/%Y %H:%M:%S")
+data1 <- cbind(DiffTime, data1)
+
 ##making plot 1 and the PNG file
+
 png("plot1.png", width = 480, height = 480, units = "px")
 hist(data1$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 dev.off()
